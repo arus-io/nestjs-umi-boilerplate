@@ -11,7 +11,7 @@ import React, { useState } from 'react';
 import ProForm, { ProFormCaptcha, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
 import { useIntl, Link, history, FormattedMessage, SelectLang, useModel } from 'umi';
 import Footer from '@/components/Footer';
-import { login, getFakeCaptcha } from '@/services/ant-design-pro/login';
+import { AuthControllerUserLogin } from '@/services/ant-design-pro/auth';
 
 import styles from './index.less';
 
@@ -56,11 +56,11 @@ const Login: React.FC = () => {
     }
   };
 
-  const handleSubmit = async (values: API.LoginParams) => {
+  const handleSubmit = async (values: API.UserLoginDto) => {
     setSubmitting(true);
     try {
       // 登录
-      const msg = await login({ ...values, type });
+      const msg = await AuthControllerUserLogin({ ...values, type });
       if (msg.status === 'ok') {
         message.success('登录成功！');
         await fetchUserInfo();
@@ -112,7 +112,7 @@ const Login: React.FC = () => {
               },
             }}
             onFinish={async (values) => {
-              handleSubmit(values as API.LoginParams);
+              handleSubmit(values as API.LoginPayloadDto);
             }}
           >
             <Tabs activeKey={type} onChange={setType}>
@@ -143,7 +143,7 @@ const Login: React.FC = () => {
             {type === 'account' && (
               <>
                 <ProFormText
-                  name="username"
+                  name="email"
                   fieldProps={{
                     size: 'large',
                     prefix: <UserOutlined className={styles.prefixIcon} />,
@@ -259,15 +259,6 @@ const Login: React.FC = () => {
                       ),
                     },
                   ]}
-                  onGetCaptcha={async (phone) => {
-                    const result = await getFakeCaptcha({
-                      phone,
-                    });
-                    if (result === false) {
-                      return;
-                    }
-                    message.success('获取验证码成功！验证码为：1234');
-                  }}
                 />
               </>
             )}
