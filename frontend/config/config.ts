@@ -1,11 +1,9 @@
 // https://umijs.org/config/
 import { defineConfig } from 'umi';
-import { join } from 'path';
 import defaultSettings from './defaultSettings';
 import proxy from './proxy';
 import routes from './routes';
-
-const { REACT_APP_ENV } = process.env;
+const { REACT_APP_ENV, UMI_APP_SERVER_URL } = process.env;
 
 export default defineConfig({
   hash: true,
@@ -15,14 +13,13 @@ export default defineConfig({
   },
   layout: {
     // https://umijs.org/zh-CN/plugins/plugin-layout
-    locale: true,
+    locale: false,
     siderWidth: 208,
     ...defaultSettings,
   },
   // https://umijs.org/zh-CN/plugins/plugin-locale
   locale: {
-    // default zh-CN
-    default: 'zh-CN',
+    default: 'en-US',
     antd: true,
     // default true, when it is true, will use `navigator.language` overwrite default
     baseNavigator: true,
@@ -49,10 +46,8 @@ export default defineConfig({
     basePath: '/',
   },
   openAPI: {
-    requestLibPath: "import { request } from 'umi'",
-    // 或者使用在线的版本
-    schemaPath: "http://localhost:3000/api-json",
-    //schemaPath: join(__dirname, 'oneapi.json'),
+    requestLibPath: `import { request } from 'umi'`,
+    schemaPath: `${UMI_APP_SERVER_URL}/api-json`,
     mock: false,
   },
 });

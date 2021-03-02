@@ -9,7 +9,7 @@ export default [
           {
             name: 'login',
             path: '/user/login',
-            component: './User/login',
+            component: './user/login',
           },
         ],
       },
@@ -17,9 +17,9 @@ export default [
   },
   {
     path: '/welcome',
-    name: 'welcome',
+    name: 'Welcome',
     icon: 'smile',
-    component: './Welcome',
+    component: './welcome/welcome',
   },
   {
     path: '/admin',
@@ -32,15 +32,9 @@ export default [
         path: '/admin/sub-page',
         name: 'sub-page',
         icon: 'smile',
-        component: './Welcome',
+        component: './welcome/welcome',
       },
     ],
-  },
-  {
-    name: 'list.table-list',
-    icon: 'table',
-    path: '/list',
-    component: './TableList',
   },
   {
     path: '/',
