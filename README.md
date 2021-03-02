@@ -1,16 +1,11 @@
+# NestJS + UMI project template
 
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo_text.svg" width="320" alt="Nest Logo" /></a>
-  <a href="https://pro.ant.design" target="blank"><img src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg" width="220" alt="Antd Logo" /></a>
-
-</p>
-
-<p align="center">A progressive <a href="http://nodejs.org" target="blank">Node.js</a> framework for building efficient and scalable server-side applications, heavily inspired by <a href="https://angular.io" target="blank">Angular</a>.</p>
-
-
-### 📚 Description
-
-This boilerplate is made to quickly prototype frontend + backend applications. It comes with authentication, logging, security, and database features out of the box.
+This boilerplate is made to quickly prototype frontend + backend applications.
+Main techonologies:
+ * [NestJS](https://nestjs.com/)
+ * [TypeORM](https://typeorm.io)
+ * [Ant Design Pro](http://pro.ant.design)
+ * [UMI.js](https://umijs.org)
 
 ---
 
