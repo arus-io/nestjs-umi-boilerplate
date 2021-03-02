@@ -42,7 +42,7 @@ export default [
   },
   {
     name: 'account-settings',
-    icon: 'smile',
+    icon: 'home',
     path: '/account-settings',
     component: './account-settings',
   },
